@@ -1,113 +1,27 @@
+<!DOCTYPE html>
 <html>
     <head>
-        <meta charset="UTF-8" />
-        <title>new tab</title>
-        <link rel='stylesheet' href='index.css' />
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <title>jTTY Example</title>
+
+        <link rel="stylesheet" href="normalize.css">
+        <link rel="stylesheet" href="jTTY.css">
+
+        <script src="jTTY.js"></script>
     </head>
     <body>
-	   <div class="Quote">
-          <span id="rathernice">This is a sample paragraph.</span>
-
-	</div>
-        <div class='main'>
-            <div id='banner'>
-            <script type="text/javascript">
-                var imgCount = 21;
-                    var dir = 'resources/';
-                    var randomCount = Math.round(Math.random() * (imgCount - 1)) + 1;
-                    var images = new Array
-                        images[1] = "An1.gif",
-                        images[2] = "An2.gif",
-                        images[3] = "An3.gif",
-                        images[4] = "An4.gif",
-                        images[5] = "An5.jpg",
-                        images[6] = "An6.jpg",
-                        images[7] = "An7.jpg",
-						images[8] = "An8.jpg",
-                        images[9] = "An9.gif",
-                        images[10] = "An10.jpg",
-                        images[11] = "An11.jpg",
-                        images[12] = "An12.png",
-                        images[13] = "An13.gif",
-                        images[14] = "An14.png",
-                        images[15] = "An15.png",
-                        images[16] = "An16.png",
-                        images[17] = "An17.png",
-                        images[18] = "An18.png",
-                        images[19] = "An19.png",
-						images[20] = "An20.png",
-						images[21] = "An21.png",						
-                    document.getElementById("banner").style.backgroundImage = "url(" + dir + images[randomCount] + ")"; 
-               </script>
-               </div>
-            <div class='search'>
-                <form method="get" action="https://www.google.com/search">
-                <input type="text" placeholder="" name="q" size="31" value="" autocomplete='false' autofocus='yes' class='searchbar'></form>
-            </div>
-
-            <div class='links'>
-                <ul>
-                    <li>
-						<div class="dropdown">
-							<button class="dropbtn">Entertainment</button>
-								<div class="dropdown-content">
-									<a href="https://www.facebook.com/" class="btn btn-default">Facebook</a>
-									<a href="https://www.messenger.com/" class="btn btn-default">Messenger</a>
-									<a href="https://twitter.com/" class="btn btn-default">Twitter</a>
-									<a href="https://www.reddit.com" class="btn btn-default">Reddit</a>
-									<a href="https://play.google.com/books" class="btn btn-default">Google Play Books</a>
-									<a href="https://feedly.com/" class="btn btn-default">Feedly</a>
-									<a href="https://www.youtube.com/feed/subscriptions" class="btn btn-default">Youtube</a>
-									<a href="https://www.pinterest.com/" class="btn btn-default">Pinterest</a>
-								</div>
-						</div>
-					</li> || 
-                    <li>
-						<div class="dropdown">
-							<button class="dropbtn">Voz</button>
-								<div class="dropdown-content">
-									<a href="https://vozforums.com/forumdisplay.php?f=11" class="btn btn-default">Game</a>
-									<a href="https://vozforums.com/forumdisplay.php?f=13" class="btn btn-default">Phan  mem</a>
-									<a href="https://vozforums.com/forumdisplay.php?f=26" class="btn btn-default">Tin tuc Inet</a>
-									<a href="https://vozforums.com/forumdisplay.php?f=27" class="btn btn-default">Review SP</a>
-								</div>
-						</div>
-					</li> || 
-                    <li>
-						<div class="dropdown">
-							<button class="dropbtn">Misc</button>
-								<div class="dropdown-content">
-									<a href="http://boards.4chan.org/3/" class="btn btn-default">/3/</a>					
-									<a href="http://boards.4chan.org/adv/" class="btn btn-default">/adv/</a>					
-									<a href="http://boards.4chan.org/g/" class="btn btn-default">/g/</a>					
-									<a href="http://boards.4chan.org/ic/" class="btn btn-default">/ic/</a>								
-									<a href="http://boards.4chan.org/v/" class="btn btn-default">/v/</a>					
-									<a href="http://boards.4chan.org/wg/" class="btn btn-default">/wg/</a>					
-									<a href="http://boards.4chan.org/r9k/" class="btn btn-default">/r9k/</a>
-									<a href="http://boards.4chan.org/x/" class="btn btn-default">/x/</a>
-								</div>
-						</div>
-					</li> || 
-                    <li>
-						<div class="dropdown">
-							<button class="dropbtn">Misc</button>
-								<div class="dropdown-content">
-									<a href="https://drive.google.com/drive/u/0/my-drive" class="btn btn-default">Google Drive</a>
-									<a href="https://mail.google.com/" class="btn btn-default">Gmail</a>
-									<a href="https://drive.google.com/" class="btn btn-default">Google Drive</a>
-									<a href="https://calendar.google.com" class="btn btn-default">Google Calendar</a>
-									<a href="https://www.google.com/maps/" class="btn btn-default">Google Maps</a>
-									<a href="http://polycount.com/" class="btn btn-default">Polycount</a>
-									<a href="http://www.artstation.com/" class="btn btn-default">ArtStation</a>
-									<a href="https://www.evernote.com" class="btn btn-default">Evernote</a>
-								</div>
-						</div>
-					</li> 
-
-                </ul>
-            </div>
-            </div>
-        </div>
-	<script src="application.js"></script>
     </body>
+    <script>
+        var tty = new jTTY("test", {
+            'enableCommands': {
+                'key': 'Enter',
+                'commands': {
+                    "echo": function() {
+                        console.log.apply(tty, arguments);
+                    }
+                }
+            }
+        }).attach(document.body);
+    </script>
 </html>
